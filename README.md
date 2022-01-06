@@ -2,6 +2,8 @@
 
 Personal project to drive a set of Christmas lights
 
+The main reason for uploading this to Github was as a learning experience.
+
 I'm using the following LED light strip
 BTF-LIGHTING WS2812B RGB 5050SMD from Amazon
 5m long (60 leds/metre) = 300 leds
