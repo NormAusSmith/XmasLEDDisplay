@@ -56,6 +56,7 @@ void DrawPixels(float fPos, float count, CRGB colour)
 
     while (remaining > 1.0f)
     {
+        
         FastLED.leds()[iPos] += colour;
         iPos++;
         remaining--;
