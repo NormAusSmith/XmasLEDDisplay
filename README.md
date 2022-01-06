@@ -10,6 +10,14 @@ Heltec_Wifi_Kit_32 and
 BTF-LIGHTING WS2812B RGB 5050SMD from Amazon
 5m long (60 leds/metre) = 300 leds
 ```
+This code has the following effects:
+```
+Comets      - a number of comets in Xmas colours
+TwinkleFox  - From FastLED examples
+Sparkles    - looks a bit like random strobing lights
+Icicles     - random dripping icicles
+Firewindow  - flames licking up either side of the window
+```
 
 In my case I have a 263 led strip, 100 up one side of my window, 63 across
 the top and the final 100 down the other side of the window, so g_LEDs[0] is
