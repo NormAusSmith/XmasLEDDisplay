@@ -1,6 +1,6 @@
 # XmasLEDDisplay
 
-Personal project to drive a set of LED Christmas lights
+#1 Personal project to drive a set of LED Christmas lights
 
 The main reason for uploading this to Github was as a learning experience.
 
