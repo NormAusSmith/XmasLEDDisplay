@@ -5,7 +5,7 @@ Personal project to drive a set of LED Christmas lights
 The main reason for uploading this to Github was as a learning experience.
 
 For this project I used the following
-a Heltec_Wifi_Kit_32 and
+Heltec_Wifi_Kit_32 and
 BTF-LIGHTING WS2812B RGB 5050SMD from Amazon
 5m long (60 leds/metre) = 300 leds
 
