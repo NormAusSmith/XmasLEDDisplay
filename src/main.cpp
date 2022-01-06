@@ -7,6 +7,8 @@
 //	BTF-LIGHTING WS2812B RGB 5050SMD from Amazon
 //	5m long (60 leds/metre) = 300 leds
 
+//  comment 1 added in Github
+
 //  globals
 
 int g_Brightness = 255;  //  max = 255    Actual brightness value
