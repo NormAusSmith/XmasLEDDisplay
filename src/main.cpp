@@ -7,11 +7,8 @@
 //	BTF-LIGHTING WS2812B RGB 5050SMD from Amazon
 //	5m long (60 leds/metre) = 300 leds
 
-<<<<<<< HEAD
 //  comment 2 added in VSCode
-=======
 //  comment 1 added in Github
->>>>>>> 436b3ce9b3f043555800ecefdf29c25be0dca9cd
 
 //  globals
 
