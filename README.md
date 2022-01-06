@@ -18,7 +18,9 @@ to suit my installation and preferences.  I'm not claiming them as my own
 The following were very good resource for some of these effects
 
 https://github.com/Aircoookie/aircoookie
+
 FastLED examples
+
 https://www.youtube.com/c/DavesGarage
 
 
