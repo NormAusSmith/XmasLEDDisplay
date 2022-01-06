@@ -7,7 +7,7 @@
 
 /*
 Draw sets of smooth scrolling coloured comets.
-Each successive comet is drawn a little slower
+Each successive comet progresses a little slower    
 */
 
 extern CRGB g_LEDs[];
