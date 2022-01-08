@@ -14,8 +14,17 @@ extern char g_Msg[];
 
 //  Low end of the led string (starting at 0), goes up one side of the window and the icicles descend.
 //  The LEDs are strung across the top of the window and down the other side.
-//  The high end of the led string (ending in 300), go down the other side of the window so the
+//  The high end of the led string (ending in 263), go down the other side of the window so the
 //  leds are reversed so they also descend on the far side.
+
+//  Aperture: I can't think of a better name for this.  It's the region in which an individual icicle "slides"
+//              An aperture may or may not be longer than the icicle (but never shorter)
+//
+//  Icicle Length:  4
+//  Aperture:       7
+//  Behaviour:      Icicle will grow, one pixel at a time, until it is 4 pixels long.
+//                  All 4 pixels will then slide for 3 pixels.
+//                  Finally the icicle will disappear (or drain) one pixel at a time until its complete.
 
 class Icicle
 {
@@ -57,8 +66,7 @@ public:
         m_aperture_length = apertureLength;
         m_reversed = drawReversed;
 
-        if (apertureLength < icicleLength)
-            apertureLength = icicleLength;
+        apertureLength = ConstrainInts(apertureLength, icicleLength, apertureLength);
 
         m_step = 0;
         m_complete = false;
@@ -169,7 +177,6 @@ public:
             return;
 
         g_LEDs[ledPosition] = ledColour;
-        //FastLED.leds()[ledPosition] = ledColour;
     }
 
 }; //  end Class Icicle
