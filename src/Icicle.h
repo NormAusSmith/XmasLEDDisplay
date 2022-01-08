@@ -12,6 +12,10 @@ using namespace std;
 extern CRGB g_LEDs[];
 extern char g_Msg[];
 
+//  forward declarations
+
+int ConstrainInts(int testValue, int minValue, int maxValue);
+
 //  Low end of the led string (starting at 0), goes up one side of the window and the icicles descend.
 //  The LEDs are strung across the top of the window and down the other side.
 //  The high end of the led string (ending in 263), go down the other side of the window so the
