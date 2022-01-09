@@ -21,14 +21,14 @@ int ConstrainInts(int testValue, int minValue, int maxValue);
 //  The high end of the led string (ending in 263), go down the other side of the window so the
 //  leds are reversed so they also descend on the far side.
 
-//  Aperture: I can't think of a better name for this.  It's the region in which an individual icicle "slides"
-//              An aperture may or may not be longer than the icicle (but never shorter)
+//  Aperture:   I can't think of a better name for this.  It's the region in which an individual 
+//              icicle "slides". An aperture may be longer than the icicle (but never shorter)
 //
 //  Icicle Length:  4
 //  Aperture:       7
 //  Behaviour:      Icicle will grow, one pixel at a time, until it is 4 pixels long.
-//                  All 4 pixels will then slide for 3 pixels.
-//                  Finally the icicle will disappear (or drain) one pixel at a time until its complete.
+//                  All 4 pixels will then slide down for 3 steps.
+//                  Finally the icicle will drain one pixel at a time until its gone.
 
 class Icicle
 {
@@ -92,47 +92,49 @@ public:
         if (m_last_update + m_delay > millis())
             return;
 
-        if (m_reversed)
+        //  The icicle progresses on "step" after each delay.  The icicle actually starts
+        //  above the aperture and slides into view.  So "step" starts the length of the 
+        //  icicle above the aperture, and continues until the bottom of the aperture.
+
+        if (m_reversed)     //  leds running up side of window, lowest number at the bottom
         {
             if (m_step < m_icicle_length) //  fill
             {
                 for (int i = m_start; i < m_start + m_icicle_length; i++)
                 {
                     if (i > m_start + m_step)
-                        SetLedPosAndColour(i, CRGB::Black);
+                        SetLEDPosAndColour(i, CRGB::Black);
                     else
-                        SetLedPosAndColour(i, CRGB::White);
+                        SetLEDPosAndColour(i, CRGB::White);
                 }
             }
-            else
+            else            //  drain
             {
-                //  reverse drain
-
                 for (int i = m_start; i < m_start + m_aperture_length; i++)
                 {
                     int top = m_start + (m_step - m_icicle_length);
                     int bot = (top + m_icicle_length + 1);
 
                     if (i < top || i > bot)
-                        SetLedPosAndColour(i, CRGB::Black);
+                        SetLEDPosAndColour(i, CRGB::Black);
                     else
-                        SetLedPosAndColour(i, CRGB::White);
+                        SetLEDPosAndColour(i, CRGB::White);
                 }
             }
         }
-        else //  forward (not reversed)
+        else        //  (not reversed) leds running down far side of window, highest number at the bottom.
         {
             if (m_step < m_icicle_length) //  fill
             {
                 for (int i = m_start; i > m_start - m_icicle_length; i--)
                 {
                     if (i > m_start - m_step)
-                        SetLedPosAndColour(i, CRGB::White);
+                        SetLEDPosAndColour(i, CRGB::White);
                     else
-                        SetLedPosAndColour(i, CRGB::Black);
+                        SetLEDPosAndColour(i, CRGB::Black);
                 }
             }
-            else // drain
+            else    // drain
             {
                 for (int i = m_start; i > m_start - m_aperture_length; i--)
                 {
@@ -140,9 +142,9 @@ public:
                     int bot = (top - m_icicle_length + 1);
 
                     if (i > top || i < bot)
-                        SetLedPosAndColour(i, CRGB::Black);
+                        SetLEDPosAndColour(i, CRGB::Black);
                     else
-                        SetLedPosAndColour(i, CRGB::White);
+                        SetLEDPosAndColour(i, CRGB::White);
                 }
             }
         }
@@ -160,7 +162,7 @@ public:
 
     } // end Render
 
-    void SetLedPosAndColour(int ledPosition, CRGB ledColour)
+    void SetLEDPosAndColour(int ledPosition, CRGB ledColour)
     {
         //  dont draw outside our aperture
 
