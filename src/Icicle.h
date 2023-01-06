@@ -92,7 +92,7 @@ public:
         if (m_last_update + m_delay > millis())
             return;
 
-        //  The icicle progresses on "step" after each delay.  The icicle actually starts
+        //  The icicle progresses one "step" after each delay.  The icicle actually starts
         //  above the aperture and slides into view.  So "step" starts the length of the 
         //  icicle above the aperture, and continues until the bottom of the aperture.
 
